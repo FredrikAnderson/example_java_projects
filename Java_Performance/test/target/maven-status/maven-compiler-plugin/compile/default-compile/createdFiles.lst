@@ -1,0 +1,12 @@
+org\sample\generated\MyBenchmark_testMethod$MyBenchmark_1_jmh.class
+org\sample\generated\MyBenchmark_testMethod$Blackhole_1_jmh_B2.class
+org\sample\generated\MyBenchmark_testMethod$MyBenchmark_1_jmh_B3.class
+org\sample\generated\MyBenchmark_testMethod$Blackhole_1_jmh_B3.class
+META-INF\CompilerHints
+META-INF\BenchmarkList
+org\sample\generated\MyBenchmark_testMethod$Blackhole_1_jmh.class
+org\sample\generated\MyBenchmark_testMethod.class
+org\sample\MyBenchmark.class
+org\sample\generated\MyBenchmark_testMethod$MyBenchmark_1_jmh_B2.class
+org\sample\generated\MyBenchmark_testMethod$Blackhole_1_jmh_B1.class
+org\sample\generated\MyBenchmark_testMethod$MyBenchmark_1_jmh_B1.class

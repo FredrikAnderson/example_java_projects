@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =================================================================== -->
+<!-- LogBack configuration file -->
+<!-- =================================================================== -->
+<configuration>
+
+  <!-- Append messages to the console -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>%-5p %c{1} - %m%n</Pattern>
+    </encoder>
+  </appender>
+
+  <appender name="PROTOM_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs\Protomomer.log</file>
+    <append>true</append>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>logs\Protomomer.%d.%i.log</fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy 
+            class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+        <!-- or whenever the file size reaches 100MB --> 
+        <maxFileSize>1MB</maxFileSize> 
+      </timeBasedFileNamingAndTriggeringPolicy> 
+      <!-- keep 10 days' worth of history -->
+      <maxHistory>3</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd' 'HH:mm:ss.SSS} [%t] %-2p [%logger{20}] - %m %xThrowable{full} %n</pattern>
+    </encoder>
+  </appender>
+  
+  
+  <!-- Protom application logging -->
+  <logger name="com.volvo.protom.tool" level="debug" />
+  
+  <logger name="atomikos" level="error" />
+  <logger name="com.volvo.protom.uiservice.LogoutServlet" level="debug" />
+
+  <logger name="org.apache.derby" level="error" />
+  <logger name="org.dozer.loader.xml.XMLParser" level="warning" />
+    
+   <!-- Setup logging level for OpenJPA  -->
+<!--   <logger name="openjpa" level="info"/> -->
+<!--   <logger name="openjpa.jdbc.SQL" level="trace"/> -->
+<!--    <logger name="openjpa.MetaData" level="trace"/> -->
+  
+  <!-- <logger name="org.apache" level="trace" /> --> 
+  <!-- <logger name="org.apache.derby" level="trace" /> -->
+
+  <!-- Set default log-level -->
+  <root level="info">
+    <appender-ref ref="PROTOM_INFO" />   
+  </root>
+  <root level="debug">
+    <appender-ref ref="STDOUT" />   
+  </root>
+
+</configuration>

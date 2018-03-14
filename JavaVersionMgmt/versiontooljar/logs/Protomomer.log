@@ -1,0 +1,160 @@
+2015-12-11 22:51:31.573 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:51:31.576 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:51:31.620 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:51:31.621 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:51:51.707 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:51:51.707 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:51:51.805 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:51:51.806 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:52:11.863 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:52:11.863 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:52:11.914 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:52:11.914 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:52:31.987 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:52:31.987 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:52:32.075 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:52:32.076 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:52:52.143 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:52:52.144 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:52:52.219 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:52:52.219 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:53:12.291 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:53:12.292 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:53:12.347 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:53:12.347 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:53:32.435 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:53:32.436 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:53:32.511 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:53:32.512 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:53:52.574 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:53:52.574 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:53:52.664 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:53:52.664 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:54:12.741 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:54:12.742 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:54:12.826 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:54:12.827 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:54:32.902 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:54:32.902 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:54:32.962 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:54:32.963 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:54:53.029 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:54:53.029 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:54:53.094 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:54:53.095 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:55:13.185 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:55:13.185 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:55:13.246 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:55:13.247 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:55:33.317 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:55:33.317 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:55:33.376 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:55:33.377 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:55:53.440 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:55:53.440 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:55:53.533 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:55:53.533 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:56:13.607 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:56:13.607 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:56:13.672 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:56:13.672 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:56:33.749 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:56:33.750 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:56:33.811 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:56:33.812 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:56:53.879 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:56:53.879 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:56:53.928 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:56:53.929 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:57:13.996 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:57:13.997 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:57:14.060 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:57:14.061 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:57:34.116 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:57:34.116 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:57:34.188 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:57:34.189 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:57:54.253 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:57:54.254 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:57:54.317 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:57:54.318 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:58:14.387 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:58:14.388 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:58:14.456 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:58:14.457 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:58:34.543 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:58:34.543 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:58:34.592 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:58:34.592 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:58:54.661 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:58:54.662 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:58:54.716 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:58:54.716 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:59:14.780 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:59:14.780 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:59:14.862 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:59:14.863 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:59:34.926 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:59:34.927 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:59:34.998 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:59:34.998 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 22:59:55.060 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 22:59:55.061 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 22:59:55.120 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 22:59:55.121 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:00:15.203 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:00:15.204 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:00:15.260 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:00:15.261 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:00:35.332 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:00:35.333 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:00:35.389 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:00:35.391 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:00:55.457 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:00:55.457 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:00:55.513 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:00:55.513 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:01:15.573 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:01:15.573 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:01:15.631 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:01:15.631 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:01:35.698 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:01:35.699 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:01:35.764 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:01:35.764 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:01:55.850 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:01:55.850 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:01:55.895 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:01:55.895 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:02:15.966 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:02:15.967 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:02:16.026 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:02:16.026 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:02:36.097 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:02:36.098 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:02:36.180 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:02:36.181 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:02:56.248 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:02:56.249 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:02:56.305 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:02:56.306 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:03:16.370 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:03:16.370 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:03:16.427 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:03:16.428 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:03:36.518 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:03:36.518 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:03:36.576 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:03:36.576 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:03:56.631 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:03:56.631 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:03:56.684 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:03:56.685 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:04:16.752 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:04:16.752 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:04:16.833 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:04:16.833 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  
+2015-12-11 23:04:36.901 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.1007","Implementation-Scm-Revision":"12910"}  
+2015-12-11 23:04:36.902 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Dev, Version: 4.3.1007  
+2015-12-11 23:04:36.960 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - {"Implementation-Title":"pos-uiservice-rest","Implementation-Version":"4.3.996","Implementation-Scm-Revision":"12864"}  
+2015-12-11 23:04:36.961 [Thread-1] DEBUG [c.v.d.v.HttpStatusChecker] - Got HTTP code: 200, from: Test, Version: 4.3.996  

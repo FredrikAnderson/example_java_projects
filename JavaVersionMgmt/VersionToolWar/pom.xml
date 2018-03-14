@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>VersionTool</artifactId>
+    <groupId>com.volvo.drs</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.volvo.drs.versiontool</groupId>
+  <artifactId>VersionToolWar</artifactId>
+  <name>VersionToolWar</name>
+  <description>VersionToolWar</description>
+  <packaging>war</packaging>
+
+  <properties>
+    <jstl.version>1.2</jstl.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.volvo.drs.versiontool</groupId>
+      <artifactId>versiontooljar</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <!-- JVS Runtime dependencies -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-runtime-spring</artifactId>
+      <version>${jvs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-runtime-integration</artifactId>
+      <version>${jvs.version}</version>
+    </dependency>
+    <!-- End JVS Runtime dependencies -->
+
+    <!-- Logging dependencies START -->
+    <!-- Use SLF4J with LogBack for all application logging -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-support-maven-bom-slf4j-logback</artifactId>
+      <version>${jvs.version}</version>
+      <type>pom</type>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>ch.qos.logback</groupId> -->
+<!--       <artifactId>logback-classic</artifactId> -->
+<!--       <version>0.9.26</version> -->
+<!--     </dependency> -->
+    
+    <!-- Use SLF4J with Log4j2 for all application logging -->
+    <!--dependency> <groupId>com.volvo.jvs</groupId> <artifactId>jvs-support-maven-bom-slf4j-log4j2</artifactId> <version>${jvs.version}</version> <type>pom</type> 
+      </dependency -->
+    <!-- Logging dependencies END -->
+
+
+    <!-- JPA runtime dependencies START -->
+    <!-- Comment out either openjpa or hibernate based on choice of implementation -->
+    <!-- JPA runtime dependencies START -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-support-maven-bom-hibernate</artifactId>
+      <version>${jvs.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- <dependency> <groupId>com.volvo.jvs</groupId> <artifactId>jvs-support-maven-bom-openjpa</artifactId> <version>${jvs.version}</version> <type>pom</type> 
+      <scope>provided</scope> </dependency> -->
+    <!-- End JPA runtime dependencies -->
+
+    <!-- Web dependencies START -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+    <!-- Web dependencies END -->
+
+    <!-- javamelody-core, light-weight component to get runtime information. -->
+    <!-- For more info: https://confluence.it.volvo.net:9443/display/JVS/Runtime+information+using+JavaMelody <dependency> <groupId>net.bull.javamelody</groupId> 
+      <artifactId>javamelody-core</artifactId> <version>${javamelody.version}</version> </dependency> -->
+
+    <!-- jolokia-core -->
+    <!-- For more info: https://confluence.it.volvo.net:9443/display/JVS/Runtime+information+using+Jolokia <dependency> <groupId>org.jolokia</groupId> <artifactId>jolokia-core</artifactId> 
+      <version>${jolokia.version}</version> </dependency> -->
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.6.3</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.0.M2</version>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

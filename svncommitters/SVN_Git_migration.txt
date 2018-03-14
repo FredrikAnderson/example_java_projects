@@ -1,0 +1,39 @@
+
+
+1. Current dir is SVN root of project.
+
+Issue:
+svn log -q > svn_committers.txt
+
+java -jar svn_commits_to_git_authors.jar svn_committers.txt <VCN user id> <VCN password>
+File git_authors.txt is created.
+
+2. Issue command: git svn clone <SVN URL> --no-metadata --authors-file git_authors.txt --stdlayout C:\Temp\jvs_git_repo
+If command end with not being able to find author, you need to re-run with added user info.
+
+JVS repo, roughly 190 MB.
+
+3. Change dir to: C:\Temp\jvs_git_repo
+
+Issue: 
+git svn show-ignore --id=origin/trunk > .gitignore
+git add .gitignore
+git commit -m "Convert svn:ignore properties to .gitignore."
+
+4. 
+Create bare repo in a dir, dir #2.
+In SVN repo dir, issue:
+git remote add bare C:\DRS_Java\TestArea\git_VIT_test\testing\new-base.git
+
+5. Followed page.
+
+6. Check with: git branch and git tag that lists seems according to SVN.
+
+	For tags:
+  git tag -a "$ref" -m "Converted from SVN tag" "refs/heads/tags/$ref^"
+  git branch -D "tags/$ref"
+  
+Check with Git history with:
+git log
+
+7. 
