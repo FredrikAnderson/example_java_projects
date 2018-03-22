@@ -1,0 +1,11 @@
+
+include oc_login.sh $1 $2
+
+oc new-app --docker-image=$DOCKER_REPO_NAME --name=$OC_NAME --env SPRING_PROFILES_ACTIVE=$SPRING_PROFILE --insecure-registry=true
+oc set resources deploymentconfigs $OC_NAME --requests=memory=500Mi --limits=memory=1000Mi 
+# To set deployment strategy to recreate
+oc patch dc/$OC_NAME --patch '{"spec":{"strategy":{"type":"Recreate"}}}'
+# oc volume dc/$OC_NAME --add -t pvc --name=$OC_NAME-files --mount-path=/files --claim-size=20G --claim-name=$OC_NAME-files --overwrite
+oc set probe deploymentconfigs $OC_NAME --readiness --get-url=http://:8080/tm-uiservice/api/versions --initial-delay-seconds=200 --timeout-seconds=300 --period-seconds=30
+oc expose service $OC_NAME --name="exposed-$OC_NAME-to-dns" --port=8080 --hostname="testmanager-$OC_NAME.got.volvo.net"
+oc expose service $OC_NAME
