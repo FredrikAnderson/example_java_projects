@@ -1,0 +1,40 @@
+node {
+    stage('Check env') {
+		sh 'java -version'
+		sh 'mvn -v'
+		sh 'git --version'
+		
+		sh 'env'
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'			
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+	stage('Version Control') {
+            // clean workspace - all cached or temporary data
+            deleteDir() 
+            // get application
+            // git 'ssh://yt52878@git.it.volvo.net:29418/Test_Manager'
+            // get application
+            git ( url: "ssh://yt52878@git.it.volvo.net:29418/Test_Manager", branch: "develop", credentialsId: "6dad2b75-7b2a-41da-9165-79fa9ca599e3")
+
+            // set git commit
+            GIT_COMMIT = sh (script: "git log -n 1 --pretty=format:'%h'", returnStdout: true).trim()
+            // set application version
+            // env.VERSION = MAJOR_VERSION_NUMBER + '.' + GIT_COMMIT
+    }
+    stage('Application Build (compile, unit & integration tests)') {
+            dir('7_implementation/tm-web-server') {
+                // withMaven(maven: 'Maven339'){
+                    echo 'Maven build'
+                    sh 'pwd'
+                    // set release version from SNAPSHOT version
+                    // sh 'mvn versions:set -DnewVersion=${VERSION}'
+                    // clean, compile, run unit and integration tests with coverage
+                    sh 'mvn clean install'
+                // }
+            }
+        }
+
+}

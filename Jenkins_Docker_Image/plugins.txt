@@ -1,0 +1,8 @@
+maven-plugin
+maven-info
+git
+workflow-aggregator
+build-pipeline-plugin
+pipeline-utility-steps
+pipeline-maven
+docker-plugin

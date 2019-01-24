@@ -1,0 +1,16 @@
+
+Create new job, Type Maven 
+Choose Git under SCM
+	* Give repo URL: ssh://yt52878@git.it.volvo.net:29418/Test_Manager
+		* Add user credentials
+			SSH Username with private key
+				yt52878
+				Private key
+				password
+		Choose credentials
+	* Choose */develop
+	
+Under build:
+Root POM: 			7_implementation/tm-web-server/pom.xml
+Goals and options: 	install
+
