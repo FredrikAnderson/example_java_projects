@@ -40,5 +40,6 @@ Open issues
 * Git access, better with SSH keys. https://gist.github.com/ivan-pinatti/de063b610d1bdf2da229c7874968f4d9
 * Be able to do docker builds
 * Look into optimizing Java and Maven installation, see https://dzone.com/articles/dockerizing-jenkins-2-setup-and-using-it-along-wit.
+* Openshift client support, oc command.
 
 

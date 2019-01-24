@@ -1,3 +1,3 @@
 @echo off
 
-docker run -p 9000:8080 fredrik/jenkins 
+docker run --name fajenkins -p 9000:8080 fredrik/jenkins 
