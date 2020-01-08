@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.Enumeration;
@@ -37,7 +38,11 @@ public class TestingArea {
     
     public static void main(String[] args) {
 
-        comparePersonLists();
+        compareIntLists();
+        
+//        compareLists();
+        
+//        comparePersonLists();
         
 //        Long long1 = new Long(2);
 //        Long long2 = new Long(2);
@@ -62,6 +67,50 @@ public class TestingArea {
         
         
 //        printJavaProperties(args);        
+    }
+
+    private static void compareIntLists() {
+
+        ArrayList<Integer> list1 = new ArrayList<Integer>(); 
+        
+        // Add values in ArrayList 
+        list1.add(new Integer(32)); 
+        list1.add(new Integer(33)); 
+        list1.add(new Integer(35)); 
+  
+        // print list 1 
+        System.out.println("List1: " + list1); 
+
+        // Create ArrayList list2 
+        ArrayList<Integer> list2 = new ArrayList<Integer>(); 
+        // Add values in ArrayList 
+        list2.add(new Integer(44)); 
+        list2.add(new Integer(33)); 
+        list2.add(new Integer(35)); 
+
+        // Create ArrayList list3
+        ArrayList<Integer> list3 = new ArrayList<Integer>(); 
+        // Add values in ArrayList 
+        list3.add(new Integer(32)); 
+        list3.add(new Integer(33)); 
+        list3.add(new Integer(35)); 
+
+       
+//        list2.get(1).setAge(44);
+////        list2.get(2).setLastName("Pettersson");
+//        list2.get(2).setFirstName("Fredda");
+
+        // print list 2 
+        System.out.println("List2: " + list2); 
+
+        System.out.println("List1 and list2 same: " + Arrays.deepEquals(list1.toArray(), list2.toArray())); 
+
+        System.out.println("List1 and list3 same: " + Arrays.deepEquals(list1.toArray(), list3.toArray())); 
+
+        list3.add(new Integer(3));
+
+        System.out.println("List1 and list3 same: " + Arrays.deepEquals(list1.toArray(), list3.toArray())); 
+
     }
 
     private static void comparePersonLists() {

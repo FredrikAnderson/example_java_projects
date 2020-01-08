@@ -1,0 +1,24 @@
+node {
+    stage('Check env') {
+		sh 'java -version'
+		sh 'which java'
+		sh 'which javac'
+		sh 'mvn -v'
+		sh 'which mvn'
+		sh 'git --version'
+		sh 'docker info'
+		
+		sh 'env'
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'			
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+	stage('Version Control') {
+            echo 'Version control'
+    }
+    stage('Application Build (compile, unit & integration tests)') {
+            echo 'Mvn build and testing'
+        }
+}

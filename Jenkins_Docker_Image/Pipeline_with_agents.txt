@@ -1,0 +1,21 @@
+pipeline {
+    agent none
+    stages {
+        stage('Back-end') {
+            agent {
+                docker { image 'mavenqa.got.volvo.net:18443/maven:3-alpine' }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'mavenqa.got.volvo.net:18443/node:7-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}

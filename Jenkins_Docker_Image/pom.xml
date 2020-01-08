@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+<!-- 	<parent> -->
+<!-- 		<groupId>org.springframework.boot</groupId> -->
+<!-- 		<artifactId>spring-boot-starter-parent</artifactId> -->
+<!-- 		<version>2.1.4.RELEASE</version> -->
+<!-- 		<relativePath/> lookup parent from repository -->
+<!-- 	</parent> -->
+	
+	<groupId>com.volvo</groupId>
+	<artifactId>jenkins-image</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>jenkins-image</name>
+	<description>Jenkins Image project</description>
+
+	<properties>
+		<version.number>@project.version@</version.number>
+<!-- 		<version.number>One-${project.parent.version}.${git.commit.time}.${git.commit.id.abbrev}</version.number> -->
+	
+		<java.version>1.8</java.version>
+		<jvs.version>5.3.0</jvs.version>
+
+		<apache.commons.dbcp2>2.1.1</apache.commons.dbcp2>
+		<h2.version>1.4.195</h2.version>
+<!-- 		<wmq.version>8.0.0.2</wmq.version> -->
+
+		<springfox.version>2.9.2</springfox.version>
+		
+		<http.proxyHost>cloudpxgot1.srv.volvo.com</http.proxyHost>
+		<http.proxyPort>8080</http.proxyPort>
+		<http.nonProxyHost>localhost|*.volvo.net|*.volvo.com</http.nonProxyHost>
+		<https.proxyHost>cloudpxgot1.srv.volvo.com</https.proxyHost>
+		<https.proxyPort>8080</https.proxyPort>
+	</properties>
+
+	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-web</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-jersey</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.boot</groupId> -->
+<!-- 		    <artifactId>spring-boot-starter-jta-atomikos</artifactId> -->
+<!-- 		</dependency> -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-data-jpa</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-integration</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.mq</groupId> -->
+<!-- 			<artifactId>mq-jms-spring-boot-starter</artifactId> -->
+<!-- 			<version>2.0.0</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.integration</groupId> -->
+<!-- 		    <artifactId>spring-integration-jms</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-artemis</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.activemq</groupId> -->
+<!-- 			<artifactId>artemis-jms-server</artifactId> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-artemis</artifactId> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.activemq</groupId> -->
+<!-- 			<artifactId>artemis-jms-server</artifactId> -->
+<!-- 		</dependency>		 -->
+
+		<!-- Swagger for documenting the REST API -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>io.springfox</groupId> -->
+<!-- 		    <artifactId>springfox-swagger2</artifactId> -->
+<!-- 		    <version>${springfox.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>io.springfox</groupId> -->
+<!-- 		    <artifactId>springfox-swagger-ui</artifactId> -->
+<!-- 		    <version>${springfox.version}</version> -->
+<!-- 		</dependency> -->
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>javax.jms</groupId> -->
+<!-- 		    <artifactId>javax.jms-api</artifactId> -->
+<!-- 		    <version>2.0.1</version> --> 
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>javax.inject</groupId> -->
+<!-- 		    <artifactId>javax.inject</artifactId> -->
+<!-- 		    <version>1</version> -->
+<!-- 		</dependency> -->
+
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.6</version>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.apache.commons</groupId> -->
+<!--       <artifactId>commons-lang3</artifactId> -->
+<!--       <version>3.8.1</version> -->
+<!--     </dependency> -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>${apache.commons.dbcp2}</version>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.projectlombok</groupId> -->
+<!--       <artifactId>lombok</artifactId> -->
+<!--       <optional>true</optional> -->
+<!--     </dependency> -->
+
+		<dependency>
+		  <groupId>com.oracle</groupId>
+		  <artifactId>ojdbc7</artifactId>
+		  <version>12.1.0.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+
+		<!-- IBM MQ stuff -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.wmq</groupId> -->
+<!-- 			<artifactId>com.ibm.mq</artifactId> -->
+<!-- 			<version>${wmq.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.wmq</groupId> -->
+<!-- 			<artifactId>com.ibm.mqjms</artifactId> -->
+<!-- 			<version>${wmq.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.wmq</groupId> -->
+<!-- 			<artifactId>dhbcore</artifactId> -->
+<!--  			<version>${wmq.version}</version> -->
+<!-- 			<version>7.5.0.7</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.wmq</groupId> -->
+<!-- 			<artifactId>com.ibm.mq.jmqi</artifactId> -->
+<!-- 			<version>${wmq.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.ibm.wmq</groupId> -->
+<!-- 			<artifactId>com.ibm.mq.headers</artifactId> -->
+<!-- 			<version>${wmq.version}</version> -->
+<!-- 		</dependency> -->
+
+	    <dependency>
+	      <groupId>com.volvo.jvs</groupId>
+	      <artifactId>jvs-runtime-integration</artifactId>
+		  <version>${jvs.version}</version>
+	    </dependency>
+
+
+		<!-- Test dependencies -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-test</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.restdocs</groupId> -->
+<!-- 			<artifactId>spring-restdocs-mockmvc</artifactId> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+	</dependencies>
+
+	<build>
+			
+		<resources>
+<!--             <resource> -->
+<!--                 <directory>src/main/resources</directory> -->
+<!--                 <filtering>true</filtering> -->
+<!--                 <excludes> -->
+<!--                     <exclude>**/*.docx</exclude> -->
+<!--                 </excludes> -->
+<!--             </resource> -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+<!--                 <includes> -->
+<!--                     <include>**/*.docx</include> -->
+<!--                 </includes> -->
+            </resource>
+        </resources>
+		
+		<plugins>
+		
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.8.1</version>
+		        <configuration>
+		          <source>1.8</source>
+		          <target>1.8</target>
+		        </configuration>
+		      </plugin>
+		      
+		      
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.springframework.boot</groupId> -->
+<!-- 				<artifactId>spring-boot-maven-plugin</artifactId> -->
+<!-- 			</plugin> -->
+
+		</plugins>
+	</build>
+
+	<profiles>
+
+	    <profile>
+	      <id>build-docker-image-dockerfile</id>
+	      <build>
+	        <plugins>
+	      <plugin>
+	      <groupId>org.codehaus.mojo</groupId>
+	      <artifactId>exec-maven-plugin</artifactId>
+	      <version>1.6.0</version>
+	      <executions>
+	        <execution>
+	        <phase>install</phase>
+	        <goals>
+	          <goal>java</goal>
+	        </goals>
+	        </execution>
+	      </executions>
+	      <configuration>
+	        <mainClass>com.volvo.jenkins.application.infra.action.BuildDockerImage</mainClass>
+	        <arguments>
+	          <arguments>${swversion}</arguments>
+	        </arguments>
+	      </configuration>
+	      </plugin>
+	    
+	        </plugins>
+	      </build>
+	    </profile>
+	
+	    <profile>
+	      <id>build-docker-image</id>
+<!-- 	      <id>build-docker-image-jib</id> -->
+	      <build>
+	        <plugins>	        
+	          <plugin>
+	            <groupId>com.google.cloud.tools</groupId>
+	            <artifactId>jib-maven-plugin</artifactId>
+	            <version>1.2.0</version>
+	            <configuration>
+	              <from>
+	                <image>mavenqa.got.volvo.net:18443/distroless/java</image>
+	              </from>	                
+	              <allowInsecureRegistries>true</allowInsecureRegistries>
+	              <to>
+	                <image>mavenqa.got.volvo.net:18444/edb/edb-cdb-integration</image>
+	                <auth>
+	                  <username>cs-ws-s-docker</username>
+	                  <password>N9K7b9J7</password>
+	                </auth>
+	              </to>
+	              <container>
+	              	<mainClass>com.volvo.jenkins.application.EdbIntegrationApplication</mainClass>
+	              </container>
+	            </configuration>
+	            <executions>
+	              <execution>
+	                <phase>install</phase>
+	                <goals>
+	                <!-- Docker build and push to repo -->
+	                  <goal>build</goal>
+	                <!-- Docker build and import into local docker repo -->
+<!-- 	                  <goal>dockerBuild</goal> 	-->
+<!--                   <goal>buildTar</goal> 		-->
+	                </goals>
+	              </execution>
+	            </executions>
+	          </plugin>    
+	        </plugins>
+	      </build>
+	    </profile>
+
+	<profile>
+      <id>create-env</id>
+      <build>
+        <plugins>
+			<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>exec-maven-plugin</artifactId>
+			<version>1.6.0</version>
+			<executions>
+			  <execution>
+				<phase>install</phase>
+				<goals>
+				  <goal>java</goal>
+				</goals>
+			  </execution>
+			</executions>
+			<configuration>
+				<mainClass>com.volvo.jenkins.application.infra.action.CreateEnv</mainClass>
+				<arguments>
+					<arguments>${appname}</arguments>
+					<arguments>${stage}</arguments>
+                    <arguments>${swversion}</arguments>
+				</arguments>
+			</configuration>
+		  </plugin>
+	  
+        </plugins>
+      </build>
+    </profile>
+
+
+	<profile>
+      <id>delete-env</id>
+      <build>
+        <plugins>
+			<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>exec-maven-plugin</artifactId>
+			<version>1.6.0</version>
+			<executions>
+			  <execution>
+				<phase>install</phase>
+				<goals>
+				  <goal>java</goal>
+				</goals>
+			  </execution>
+			</executions>
+			<configuration>
+				<mainClass>com.volvo.jenkins.application.infra.action.DeleteEnv</mainClass>
+				<arguments>
+					<arguments>${env}</arguments>
+                    <arguments>${passwd}</arguments>
+				</arguments>
+			</configuration>
+		  </plugin>
+	  
+        </plugins>
+      </build>
+    </profile>
+	
+    </profiles>
+</project>

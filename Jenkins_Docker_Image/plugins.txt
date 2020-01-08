@@ -1,8 +1,14 @@
+greenballs
+support-core
 maven-plugin
+maven-invoker-plugin
 maven-info
-git
+jacoco
 workflow-aggregator
 build-pipeline-plugin
 pipeline-utility-steps
 pipeline-maven
 docker-plugin
+kubernetes
+openshift-sync
+git

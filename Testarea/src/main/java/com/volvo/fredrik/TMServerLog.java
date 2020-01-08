@@ -14,6 +14,9 @@ public class TMServerLog {
         if (env.equals("qa")) {
             tm_oc_project = "tcptestmanager-qa";            
         }
+        if (env.equals("prod")) {
+            tm_oc_project = "tcptestmanager-prod";            
+        }
         info("Setting proper Openshift project");
         CommonUtil.executeCmd("oc project " + tm_oc_project);
 

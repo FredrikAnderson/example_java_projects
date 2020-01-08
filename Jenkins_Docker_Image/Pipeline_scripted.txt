@@ -1,7 +1,10 @@
 node {
     stage('Check env') {
 		sh 'java -version'
+		sh 'which java'
+		sh 'which javac'
 		sh 'mvn -v'
+		sh 'which mvn'
 		sh 'git --version'
 		
 		sh 'env'
