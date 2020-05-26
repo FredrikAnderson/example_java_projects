@@ -1,24 +1,31 @@
 package com.volvo.fredrik;
 
 import java.awt.AWTException;
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.awt.SystemTray;
-import java.awt.Toolkit;
 import java.awt.TrayIcon;
+import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.net.ssl.SSLContext;
+import javax.swing.JOptionPane;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -50,23 +57,46 @@ public class AppUptimeChecker {
 
     }
 
-    public static void main(String[] args) {
+    private static List<String> urlList = new ArrayList<>();
+    
+    private static String fullStatus = "";
+    private static boolean urlStatus = true;
+    
+    private static boolean running = true;
 
+    
+	static TrayIcon trayIcon = null;
+
+    public static void main(String[] args) {
+	
+    	//    	urlList.add("http://maven2.it.volvo.net");
     	
-    	
+    	// RDM stuff
+    	urlList.add("http://dm1-ultra-rdm-test.acps-alpha-r1.srv.volvo.com/");
+    	urlList.add("http://mq-collector-rdm-test.acps-alpha-r1.srv.volvo.com/");
+
+    	// EDB stuff
+    	urlList.add("https://customer-info.edb-test.volvogroup.net/");
+    	    	
         try {
         	
-        	SystemTray tray = SystemTray.getSystemTray();
-        	
-//        	Image image = null;
-        	Image image = Toolkit.getDefaultToolkit().getImage("images/greenball.png");
-			TrayIcon trayIcon = new TrayIcon(image);
+        	SystemTray tray = SystemTray.getSystemTray();        	
+			trayIcon = new TrayIcon(getStatusImage());
 
 			PopupMenu popup = new PopupMenu();
+			MenuItem infoMi = new MenuItem("Info");
+			infoMi.addActionListener(new ActionListener() {				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(null, fullStatus);
+				}
+			});
+			popup.add(infoMi);
 			MenuItem exitMi = new MenuItem("Exit");
 			exitMi.addActionListener(new ActionListener() {				
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					running = false;
 					System.exit(0);
 				}
 			});
@@ -74,27 +104,85 @@ public class AppUptimeChecker {
 			trayIcon.setPopupMenu(popup);
 			tray.add(trayIcon);
         	
-            int status = requestURL("https://www.google.se");
+			while (running) {
+			
+				String checkStatusUp = checkStatusUp();
+			
+				trayIcon.setImage(getStatusImage());				
+				trayIcon.setToolTip(checkStatusUp);
+				
+				Thread.sleep(300 * 1000); // 5 min
+			}            
             
-//            requestOAuth2Token("https://testmanager-test.got.volvo.net/tm-uiservice/api/environment/version");
-//            requestOAuth2Token("https://testmanager-qa.got.volvo.net/tm-uiservice/api/environment/version");
-            // requestOAuth2Token("http://testmanager-capacity.got.volvo.net/tm-uiservice/api/environment/version");
-            
-            
-            
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (AWTException e) {
 			e.printStackTrace();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
 		}
-
     }
 
-    private static int requestURL(String url) throws IOException {
+    private static Image getStatusImage() {
+
+    	Color statusColor = Color.GREEN;
+    	if (!urlStatus) {
+    		statusColor = Color.RED;
+    	}
+
+    	// Create the image
+    	BufferedImage bi = new BufferedImage(40, 40, ColorSpace.TYPE_RGB);
+    	Graphics2D graphics = bi.createGraphics();
+
+    	// Fill the background with gray color
+    	graphics.setBackground(statusColor);
+    	graphics.setColor(statusColor);
+    	graphics.fillRect(0, 0, bi.getWidth(), bi.getHeight());
+
+    	return bi;
+	}
+
+	private static String checkStatusUp() {
+    	StringBuilder buf = new StringBuilder();
+    	boolean roundStatus = true;
+    	fullStatus = "" + LocalDateTime.now() + ": \n";
+    	
+    	for (String url : urlList) {
+			
+    		boolean currentUrl = true;
+    		Integer status = null;
+    		try {    			
+				status = requestURL(url);
+				if (status != 200) {
+					currentUrl = false;
+				}
+
+				if (!currentUrl) {
+					buf.append(url + ": " + status + "\n");					
+					roundStatus = false;
+				}
+    		} catch (IOException e) {
+				e.printStackTrace();
+
+				roundStatus = false;				
+			} finally {
+				fullStatus += url + ": " + status + "\n";					
+				
+			}
+		}
+
+		urlStatus = roundStatus;
+
+		String string = buf.toString();
+		if (string.isEmpty()) {
+			string = "Everything OK.\n"; 
+		}		
+    	return string;
+	}
+
+	private static int requestURL(String url) throws IOException {
 
         int toret = 0;
 
-        info("Requesting HTTP get: " + url);
+//        info("Requesting HTTP get: " + url);
 
         CloseableHttpClient httpclient = null;
         CloseableHttpResponse getResponse = null;
@@ -115,7 +203,7 @@ public class AppUptimeChecker {
 
             HttpGet httpGet = new HttpGet(url);
 
-            info(httpGet.toString());
+//            info(httpGet.toString());
             
             getResponse = httpclient.execute(httpGet);
             // The underlying HTTP connection is still held by the response object
@@ -163,6 +251,9 @@ public class AppUptimeChecker {
             getResponse.close();
             httpclient.close();
         }
+        
+        info("URL: " + url + " got " + toret);
+
         return toret;
     }
 

@@ -1,295 +1,297 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.volvo.fredrik</groupId>
-  <artifactId>java-testarea</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <packaging>war</packaging>
+<!-- 	<parent> -->
+<!-- 		<groupId>org.springframework.boot</groupId> -->
+<!-- 		<artifactId>spring-boot-starter-parent</artifactId> -->
+<!-- 		<version>2.2.7.RELEASE</version> -->
+<!-- 		<relativePath /> lookup parent from repository -->
+<!-- 	</parent> -->
 
-  <properties>
-    <postgresql.version>42.2.1</postgresql.version>
-  </properties>
+	<groupId>com.volvo.fredrik</groupId>
+	<artifactId>java-testarea</artifactId>
+	<version>0.1-SNAPSHOT</version>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.5.5</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-collections4</artifactId>
-      <version>4.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.8.1</version>
-    </dependency>
-<!--     <dependency> -->
-<!--       <groupId>org.apache.commons</groupId> -->
-<!--       <artifactId>commons-lang</artifactId> -->
-<!--       <version>4.2</version> -->
-<!--     </dependency> -->
-    <dependency>
-        <groupId>org.postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>${postgresql.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jgit</groupId>
-      <artifactId>org.eclipse.jgit</artifactId>
-      <version>4.11.6.201812241910-r</version>
-    </dependency>
+	<properties>
+		<postgresql.version>42.2.1</postgresql.version>
+	</properties>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.9.10.4</version>
-    </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.commons</groupId> -->
+		<!-- <artifactId>commons-lang</artifactId> -->
+		<!-- <version>4.2</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jgit</groupId>
+			<artifactId>org.eclipse.jgit</artifactId>
+			<version>4.11.6.201812241910-r</version>
+		</dependency>
 
-<!--     <dependency> -->
-<!--       <groupId>org.apache</groupId> -->
-<!--       <artifactId>commons-collections4</artifactId> -->
-<!--       <version>4.2</version> -->
-<!--     </dependency> -->
-  </dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.10.4</version>
+		</dependency>
 
-  <!-- TODO Move to JVS Super POM. This way we can keep this complexity hidden from the JVS users -->
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    
-    <plugins>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>com.volvo.fredrik.TMServerLog</mainClass>
-            </manifest>
-          </archive>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id> <!-- this is used for inheritance merges -->
-            <phase>package</phase> <!-- bind to the packaging phase -->
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-  
-    <profiles>
-      <profile>
-      <id>build-docker-image-jib</id>
-      <build>
-        <plugins>
-<!--           <plugin> -->
-<!--             <artifactId>maven-resources-plugin</artifactId> -->
-<!--             <version>2.7</version> -->
-<!--             <executions> -->
-<!--               Filters and performs variable substitution on all jboss CLI-files and moves them to target -->
-<!--               <execution> -->
-<!--                 <id>copy-example-kola-data</id> -->
-<!--                 <phase>package</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>copy-resources</goal> -->
-<!--                 </goals> -->
-<!--                 <configuration> -->
-<!--                   <resources> -->
-<!--                     <resource> -->
-<!--                       <directory>${basedir}/data</directory> -->
-<!--                       <filtering>true</filtering> -->
-<!--                       <includes> -->
-<!--                         <include>**/KOLA_*.txt</include> -->
-<!--                       </includes>                       -->
-<!--                     </resource> -->
-<!--                   </resources> -->
-<!--                   <outputDirectory>${basedir}/target/jib-root/home/jboss/init/kola</outputDirectory> -->
-<!--                 </configuration> -->
-<!--               </execution> -->
-<!--               <execution> -->
-<!--                 <id>copy-example-baselines-data</id> -->
-<!--                 <phase>package</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>copy-resources</goal> -->
-<!--                 </goals> -->
-<!--                 <configuration> -->
-<!--                   <resources> -->
-<!--                     <resource> -->
-<!--                       <directory>${basedir}/data</directory> -->
-<!--                       <filtering>true</filtering> -->
-<!--                       <includes> -->
-<!--                         <include>**/baselines_*</include> -->
-<!--                       </includes>                       -->
-<!--                     </resource> -->
-<!--                   </resources> -->
-<!--                   <outputDirectory>${basedir}/target/jib-root/home/jboss/init/baselines</outputDirectory> -->
-<!--                 </configuration> -->
-<!--               </execution> -->
-<!--               <execution> -->
-<!--                 <id>copy-jboss-init</id> -->
-<!--                 <phase>package</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>copy-resources</goal> -->
-<!--                 </goals> -->
-<!--                 <configuration> -->
-<!--                   <resources> -->
-<!--                     <resource> -->
-<!--                       <directory>${basedir}</directory> -->
-<!--                       <filtering>true</filtering> -->
-<!--                       <includes> -->
-<!--                         <include>**/cli-*.txt</include> -->
-<!--                       </includes> -->
-<!--                       <excludes> -->
-<!--                         <exclude>**/target/cli-*txt*</exclude> -->
-<!--                       </excludes>                       -->
-<!--                     </resource> -->
-<!--                   </resources> -->
-<!--                   <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
-<!--                 </configuration> -->
-<!--               </execution> -->
-<!--               <execution> -->
-<!--                 <id>copy-tm-start-script</id> -->
-<!--                 <phase>package</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>copy-resources</goal> -->
-<!--                 </goals> -->
-<!--                 <configuration> -->
-<!--                   <resources> -->
-<!--                     <resource> -->
-<!--                       <directory>${basedir}</directory> -->
-<!--                       <filtering>true</filtering> -->
-<!--                       <includes> -->
-<!--                         <include>**start*.sh</include> -->
-<!--                       </includes> -->
-<!--                     </resource> -->
-<!--                   </resources> -->
-<!--                   <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
-<!--                 </configuration> -->
-<!--               </execution> -->
-<!--               <execution> -->
-<!--                 <id>copy-war-files</id> -->
-<!--                 <phase>package</phase> -->
-<!--                 <goals> -->
-<!--                   <goal>copy-resources</goal> -->
-<!--                 </goals> -->
-<!--                 <configuration> -->
-<!--                   <resources> -->
-<!--                     <resource> -->
-<!--                       <directory>${basedir}/target/wars</directory> -->
-<!--                     </resource> -->
-<!--                   </resources> -->
-<!--                   <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
-<!--                 </configuration> -->
-<!--               </execution> -->
-<!--             </executions> -->
-<!--           </plugin> -->
-        
-          <plugin>
-            <groupId>com.google.cloud.tools</groupId>
-            <artifactId>jib-maven-plugin</artifactId>
-            <version>1.1.2</version>
-            <configuration>
-              <!-- Adding files to src/main/jib  with structure like /home/jboss would copy into image to /home/jboss. 
-                Should copy: cli script, war-files, TM-testdata, TM start script  -->
-              <!--  -->                
-              <!-- Copies files from 'target/jib-root' instead of 'src/main/jib' -->
-<!--               <extraDirectory> -->
-<!--                 <path>${project.basedir}/target/jib-root</path> -->
-<!--                 <permissions> -->
-<!--                   <permission> -->
-<!--                     <file>/path/on/container/to/fileA</file> -->
-<!--                     <mode>755</mode> Read/write/execute for owner, read/execute for group/other -->
-<!--                   </permission> -->
-<!--                   <permission> -->
-<!--                     <file>/path/to/another/file</file> -->
-<!--                     <mode>644</mode> Read/write for owner, read-only for group/other -->
-<!--                   </permission> -->
-<!--                 </permissions> -->
-<!--               </extraDirectory> -->
-              <!--  -->
-              <allowInsecureRegistries>true</allowInsecureRegistries>
-              <from>
-<!--                   <image>mavenqa.got.volvo.net:18443/jboss-eap-7/eap70-openshift:latest</image> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache</groupId> -->
+		<!-- <artifactId>commons-collections4</artifactId> -->
+		<!-- <version>4.2</version> -->
+		<!-- </dependency> -->
+	</dependencies>
 
-<!--                   <image>mavenqa.got.volvo.net:18443/jetty:latest</image> -->
-                  <image>mavenqa.got.volvo.net:18443/tomcat:latest</image>
-              </from>
-              <container>
-                  <useCurrentTimestamp>true</useCurrentTimestamp>
-<!--                   <mainClass>com.volvo.fredrik.TestingArea</mainClass> -->
+	<!-- TODO Move to JVS Super POM. This way we can keep this complexity hidden 
+		from the JVS users -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 
-                  <user>185:0</user>
-                  <appRoot>/home/jboss/server</appRoot>
-                  <workingDirectory>/home/jboss</workingDirectory>
-                  
-                  <!-- 
-                  <environment>
-                    <container>oci</container>
-                    <JBOSS_IMAGE_NAME>jboss-eap-7/eap70-openshift</JBOSS_IMAGE_NAME>
-                    <JBOSS_IMAGE_VERSION>1.7</JBOSS_IMAGE_VERSION>
-                    <HOME>/home/jboss</HOME>
-                    <JAVA_HOME>/usr/lib/jvm/java-1.8.0</JAVA_HOME>
-                    <JAVA_VENDOR>openjdk</JAVA_VENDOR>
-                    <JAVA_VERSION>1.8.0</JAVA_VERSION>
-                    <LAUNCH_JBOSS_IN_BACKGROUND>true</LAUNCH_JBOSS_IN_BACKGROUND>
-                    <JBOSS_PRODUCT>eap</JBOSS_PRODUCT>
-                    <JBOSS_EAP_VERSION>7.0.9.GA</JBOSS_EAP_VERSION>
-                    <PRODUCT_VERSION>7.0.9.GA</PRODUCT_VERSION>
-                    <JBOSS_HOME>/opt/eap</JBOSS_HOME>
-                  </environment>
-                   -->
-                  <ports>8080/tcp,8082/tcp</ports>
-                  <entrypoint>sh,/home/jboss/server/start_testmanager.sh</entrypoint>              
-              </container>
-              <to>
-                <image>fa/test-jib</image>
-<!--                 <auth> -->
-<!--                   <username>cs-ws-s-docker</username> -->
-<!--                   <password>N9K7b9J7</password> -->
-<!--                 </auth> -->
-              </to>
-            </configuration>
-            <executions>
-              <execution>
-                <phase>install</phase>
-                <goals>
-                <!-- Docker build and push to repo -->
-<!--                   <goal>build</goal> -->
-                <!-- Docker build and import into local docker repo -->
-                  <goal>dockerBuild</goal>
-<!--                   <goal>buildTar</goal> -->
-                </goals>
-              </execution>
-            </executions>
-          </plugin>    
-        </plugins>
-      </build>
-    </profile>
-    </profiles>
-  
-  
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.volvo.fredrik.AppUptimeChecker</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>build-docker-image-jib</id>
+			<build>
+				<plugins>
+					<!-- <plugin> -->
+					<!-- <artifactId>maven-resources-plugin</artifactId> -->
+					<!-- <version>2.7</version> -->
+					<!-- <executions> -->
+					<!-- Filters and performs variable substitution on all jboss CLI-files 
+						and moves them to target -->
+					<!-- <execution> -->
+					<!-- <id>copy-example-kola-data</id> -->
+					<!-- <phase>package</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>copy-resources</goal> -->
+					<!-- </goals> -->
+					<!-- <configuration> -->
+					<!-- <resources> -->
+					<!-- <resource> -->
+					<!-- <directory>${basedir}/data</directory> -->
+					<!-- <filtering>true</filtering> -->
+					<!-- <includes> -->
+					<!-- <include>**/KOLA_*.txt</include> -->
+					<!-- </includes> -->
+					<!-- </resource> -->
+					<!-- </resources> -->
+					<!-- <outputDirectory>${basedir}/target/jib-root/home/jboss/init/kola</outputDirectory> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- <execution> -->
+					<!-- <id>copy-example-baselines-data</id> -->
+					<!-- <phase>package</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>copy-resources</goal> -->
+					<!-- </goals> -->
+					<!-- <configuration> -->
+					<!-- <resources> -->
+					<!-- <resource> -->
+					<!-- <directory>${basedir}/data</directory> -->
+					<!-- <filtering>true</filtering> -->
+					<!-- <includes> -->
+					<!-- <include>**/baselines_*</include> -->
+					<!-- </includes> -->
+					<!-- </resource> -->
+					<!-- </resources> -->
+					<!-- <outputDirectory>${basedir}/target/jib-root/home/jboss/init/baselines</outputDirectory> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- <execution> -->
+					<!-- <id>copy-jboss-init</id> -->
+					<!-- <phase>package</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>copy-resources</goal> -->
+					<!-- </goals> -->
+					<!-- <configuration> -->
+					<!-- <resources> -->
+					<!-- <resource> -->
+					<!-- <directory>${basedir}</directory> -->
+					<!-- <filtering>true</filtering> -->
+					<!-- <includes> -->
+					<!-- <include>**/cli-*.txt</include> -->
+					<!-- </includes> -->
+					<!-- <excludes> -->
+					<!-- <exclude>**/target/cli-*txt*</exclude> -->
+					<!-- </excludes> -->
+					<!-- </resource> -->
+					<!-- </resources> -->
+					<!-- <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- <execution> -->
+					<!-- <id>copy-tm-start-script</id> -->
+					<!-- <phase>package</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>copy-resources</goal> -->
+					<!-- </goals> -->
+					<!-- <configuration> -->
+					<!-- <resources> -->
+					<!-- <resource> -->
+					<!-- <directory>${basedir}</directory> -->
+					<!-- <filtering>true</filtering> -->
+					<!-- <includes> -->
+					<!-- <include>**start*.sh</include> -->
+					<!-- </includes> -->
+					<!-- </resource> -->
+					<!-- </resources> -->
+					<!-- <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- <execution> -->
+					<!-- <id>copy-war-files</id> -->
+					<!-- <phase>package</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>copy-resources</goal> -->
+					<!-- </goals> -->
+					<!-- <configuration> -->
+					<!-- <resources> -->
+					<!-- <resource> -->
+					<!-- <directory>${basedir}/target/wars</directory> -->
+					<!-- </resource> -->
+					<!-- </resources> -->
+					<!-- <outputDirectory>${basedir}/target/jib-root/home/jboss/server</outputDirectory> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- </executions> -->
+					<!-- </plugin> -->
+
+					<plugin>
+						<groupId>com.google.cloud.tools</groupId>
+						<artifactId>jib-maven-plugin</artifactId>
+						<version>1.1.2</version>
+						<configuration>
+							<!-- Adding files to src/main/jib with structure like /home/jboss 
+								would copy into image to /home/jboss. Should copy: cli script, war-files, 
+								TM-testdata, TM start script -->
+							<!-- -->
+							<!-- Copies files from 'target/jib-root' instead of 'src/main/jib' -->
+							<!-- <extraDirectory> -->
+							<!-- <path>${project.basedir}/target/jib-root</path> -->
+							<!-- <permissions> -->
+							<!-- <permission> -->
+							<!-- <file>/path/on/container/to/fileA</file> -->
+							<!-- <mode>755</mode> Read/write/execute for owner, read/execute for 
+								group/other -->
+							<!-- </permission> -->
+							<!-- <permission> -->
+							<!-- <file>/path/to/another/file</file> -->
+							<!-- <mode>644</mode> Read/write for owner, read-only for group/other -->
+							<!-- </permission> -->
+							<!-- </permissions> -->
+							<!-- </extraDirectory> -->
+							<!-- -->
+							<allowInsecureRegistries>true</allowInsecureRegistries>
+							<from>
+								<!-- <image>mavenqa.got.volvo.net:18443/jboss-eap-7/eap70-openshift:latest</image> -->
+
+								<!-- <image>mavenqa.got.volvo.net:18443/jetty:latest</image> -->
+								<image>mavenqa.got.volvo.net:18443/tomcat:latest</image>
+							</from>
+							<container>
+								<useCurrentTimestamp>true</useCurrentTimestamp>
+								<!-- <mainClass>com.volvo.fredrik.TestingArea</mainClass> -->
+
+								<user>185:0</user>
+								<appRoot>/home/jboss/server</appRoot>
+								<workingDirectory>/home/jboss</workingDirectory>
+
+								<!-- <environment> <container>oci</container> <JBOSS_IMAGE_NAME>jboss-eap-7/eap70-openshift</JBOSS_IMAGE_NAME> 
+									<JBOSS_IMAGE_VERSION>1.7</JBOSS_IMAGE_VERSION> <HOME>/home/jboss</HOME> <JAVA_HOME>/usr/lib/jvm/java-1.8.0</JAVA_HOME> 
+									<JAVA_VENDOR>openjdk</JAVA_VENDOR> <JAVA_VERSION>1.8.0</JAVA_VERSION> <LAUNCH_JBOSS_IN_BACKGROUND>true</LAUNCH_JBOSS_IN_BACKGROUND> 
+									<JBOSS_PRODUCT>eap</JBOSS_PRODUCT> <JBOSS_EAP_VERSION>7.0.9.GA</JBOSS_EAP_VERSION> 
+									<PRODUCT_VERSION>7.0.9.GA</PRODUCT_VERSION> <JBOSS_HOME>/opt/eap</JBOSS_HOME> 
+									</environment> -->
+								<ports>8080/tcp,8082/tcp</ports>
+								<entrypoint>sh,/home/jboss/server/start_testmanager.sh</entrypoint>
+							</container>
+							<to>
+								<image>fa/test-jib</image>
+								<!-- <auth> -->
+								<!-- <username>cs-ws-s-docker</username> -->
+								<!-- <password>N9K7b9J7</password> -->
+								<!-- </auth> -->
+							</to>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<!-- Docker build and push to repo -->
+									<!-- <goal>build</goal> -->
+									<!-- Docker build and import into local docker repo -->
+									<goal>dockerBuild</goal>
+									<!-- <goal>buildTar</goal> -->
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
 </project>
