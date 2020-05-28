@@ -1,6 +1,0 @@
-<FindBugsFilter>
-    <Match>
-        <Package name="~jsp\.jsp.*"/>
-    </Match>
-</FindBugsFilter>
-
