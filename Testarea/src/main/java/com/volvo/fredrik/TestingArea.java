@@ -3,11 +3,15 @@ package com.volvo.fredrik;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
@@ -15,6 +19,8 @@ import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import javax.swing.event.ListSelectionEvent;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Equator;
@@ -33,12 +39,27 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import jcifs.CIFSContext;
+import jcifs.CIFSException;
+import jcifs.CloseableIterator;
+import jcifs.SmbResource;
+import jcifs.context.SingletonContext;
+import jcifs.smb.NtlmPasswordAuthenticator;
+import jcifs.smb.SmbFile;
+
 
 public class TestingArea {
     
     public static void main(String[] args) {
 
-        compareIntLists();
+    	replaceUnicodeZeros();
+    	
+    	
+//    	trySmbAccess();
+
+//    	compareDates();
+    	
+//        compareIntLists();
         
 //        compareLists();
         
@@ -69,7 +90,75 @@ public class TestingArea {
 //        printJavaProperties(args);        
     }
 
-    private static void compareIntLists() {
+    private static void replaceUnicodeZeros() {
+
+    	String str = "abc\\u0000\\u0000\\u0000defafterwards\\\\u0000\\\\u0000";
+    	
+    	System.out.println("String is" + str);
+
+    	String got = str.replace("\\u0000", "");
+
+    	System.out.println("Got: " + got);
+    	
+    	
+	}
+
+	private static void compareDates() {
+    	
+    	LocalDateTime now = LocalDateTime.now();
+    	LocalDateTime twoHoursAgo = LocalDateTime.now().minusHours(2);
+    	LocalDateTime twoHoursInFuture = LocalDateTime.now().plusHours(2);
+
+    	List<LocalDateTime> list = Arrays.asList(now, twoHoursAgo, twoHoursInFuture);
+    	
+    	list.sort(new Comparator<LocalDateTime>() {
+
+			@Override
+			public int compare(LocalDateTime o1, LocalDateTime o2) {
+				return o1.compareTo(o2);
+			}
+    		
+		});
+
+    	
+    	System.out.println("Sorted list: " + list);
+
+    	Collections.sort(list, Collections.reverseOrder());
+
+    	System.out.println("Reversed list: " + list);
+
+	}
+
+	private static void trySmbAccess() {
+    	
+		NtlmPasswordAuthenticator ntlmPasswordAuthenticator = new NtlmPasswordAuthenticator("VCN", "cs-ws-s-RDMADM",
+				"L%&&9&K788Jc-9H");
+		CIFSContext context = SingletonContext.getInstance().withCredentials(ntlmPasswordAuthenticator);
+		SmbResource resource;
+		String dir = "vashare1.ess.volvo.net/va_confined1/P2745_system_verification/Vehicle_Logs/";
+		try {
+			resource = context.get("smb://" + dir);
+			boolean canRead = resource.canRead();
+			System.out.println("Read access to: " + dir + ", " + canRead);
+			
+			CloseableIterator<SmbResource> children = resource.children();
+			
+			children.forEachRemaining( child -> System.out.println("child:" + child.getName()) );
+
+			SmbFile smbFile = new SmbFile("smb://" + dir, context);
+
+			CloseableIterator<SmbResource> children2 = smbFile.children();
+			children2.forEachRemaining( child -> System.out.println("child:" + child.getName()) );
+			
+			
+		} catch (CIFSException | MalformedURLException e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	private static void compareIntLists() {
 
         ArrayList<Integer> list1 = new ArrayList<Integer>(); 
         

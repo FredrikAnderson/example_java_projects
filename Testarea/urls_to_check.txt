@@ -1,0 +1,6 @@
+// RDM stuff
+http://dm1-ultra-rdm-test.acps-alpha-r1.srv.volvo.com/
+http://collector-rdm-test.acps-alpha-r1.srv.volvo.com/
+
+// EDB stuff
+https://customer-info.edb-test.volvogroup.net/
