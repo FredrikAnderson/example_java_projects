@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.fredrik</groupId>
+	<artifactId>user-srv</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>user-srv</name>
+	<description>User service</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<version.number>@project.version@</version.number>
+	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   		<org.apache.maven.plugins.version>3.6.0</org.apache.maven.plugins.version>
+   		<java.version>1.8</java.version>
+
+		<!-- Liquibase -->
+<!-- 		<liquibase.version>3.6.3</liquibase.version> -->
+		<!-- Lombok -->
+		<lombok.version>1.18.12</lombok.version>
+		<!-- Mapstruct -->
+        <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.bull.javamelody</groupId>
+			<artifactId>javamelody-spring-boot-starter</artifactId>
+			<version>1.79.0</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-devtools</artifactId> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+		<!-- Liquibase -->
+<!--         <dependency> -->
+<!--             <groupId>org.liquibase</groupId> -->
+<!--             <artifactId>liquibase-core</artifactId> -->
+<!--         </dependency> -->
+        
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springdoc</groupId> -->
+<!-- 		    <artifactId>springdoc-openapi-core</artifactId> -->
+<!-- 		</dependency> -->
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+		    <artifactId>springdoc-openapi-ui</artifactId>
+		</dependency>			
+
+	    <dependency>
+	      <groupId>io.swagger</groupId>
+	      <artifactId>swagger-annotations</artifactId>
+	      <version>1.5.21</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>io.swagger</groupId>
+	      <artifactId>swagger-models</artifactId>
+	      <version>1.5.21</version>
+	    </dependency>
+
+		<dependency>
+		    <groupId>org.openapitools</groupId>
+		    <artifactId>jackson-databind-nullable</artifactId>
+		    <version>0.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.voodoodyne.jackson.jsog</groupId>
+			<artifactId>jackson-jsog</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+<!-- 	    <dependency> -->
+<!-- 	      <groupId>io.swagger</groupId> -->
+<!-- 	      <artifactId>swagger-jaxrs</artifactId> -->
+<!-- 	      <version>1.5.21</version> -->
+<!-- 	    </dependency> -->
+	    
+			<dependency>
+	            <groupId>org.mapstruct</groupId>
+	            <artifactId>mapstruct</artifactId>
+	            <version>${org.mapstruct.version}</version>
+	        </dependency>
+
+<!-- 		<dependency> -->
+<!--             <groupId>org.mapstruct</groupId> -->
+<!--             <artifactId>mapstruct-jdk8</artifactId> -->
+<!--             <version>${org.mapstruct.version}</version> -->
+<!--         </dependency> -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>26.0-jre</version>
+      </dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fredrik</groupId>
+			<artifactId>bookit-support</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+<!-- 		      <dependency> -->
+<!-- 		        <groupId>io.springfox</groupId> -->
+<!-- 		        <artifactId>springfox-swagger2</artifactId> -->
+<!-- 		        <version>2.9.2</version> -->
+<!-- 		      </dependency> -->
+<!-- 		      <dependency> -->
+<!-- 		        <groupId>io.springfox</groupId> -->
+<!-- 		        <artifactId>springfox-swagger-ui</artifactId> -->
+<!-- 		        <version>2.9.2</version> -->
+<!-- 		      </dependency> -->
+<!-- 		      <dependency> -->
+<!-- 		        <groupId>io.springfox</groupId> -->
+<!-- 		        <artifactId>springfox-bean-validators</artifactId> -->
+<!-- 		        <version>2.9.2</version> -->
+<!-- 		      </dependency> -->
+
+			<dependency>
+			    <groupId>org.springdoc</groupId>
+			    <artifactId>springdoc-openapi-core</artifactId>
+			    <version>1.2.22</version>
+			</dependency>	
+			<dependency>
+			    <groupId>org.springdoc</groupId>
+			    <artifactId>springdoc-openapi-ui</artifactId>
+			    <version>1.2.22</version>
+			</dependency>			
+			
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<plugins>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+<!--                 <version>${org.apache.maven.plugins.version}</version> -->
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>-Amapstruct.suppressGeneratorTimestamp=true</arg>
+<!--                         <arg>-Amapstruct.defaultComponentModel=spring</arg> -->
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.openapitools</groupId> -->
+<!-- 				<artifactId>openapi-generator-maven-plugin</artifactId> -->
+<!-- 				<version>4.1.3</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>generate-jaxrs-from-openapi</id> -->
+<!-- 					    <phase>generate-sources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>generate</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<inputSpec>${project.basedir}/src/main/resources/openapi/bookit-rest-api.yaml</inputSpec> -->
+<!-- 							<generatorName>jaxrs-resteasy-eap</generatorName> --> 
+<!-- 							<generatorName>spring</generatorName> -->
+<!-- 							<library>spring-boot</library> -->
+<!-- 							<templateDirectory>${project.basedir}/src/main/resources/openapi/templates</templateDirectory> --> 
+<!-- 							<modelPackage>com.fredrik.bookit.web.rest.model</modelPackage> -->
+<!-- 							<apiPackage>com.fredrik.bookit.web.rest.api</apiPackage> -->
+<!-- 							<invokerPackage>com.fredrik.bookit.web.rest.invoker</invokerPackage> -->
+<!-- 							<configOptions> -->
+<!-- 								<sourceFolder>src/main/java</sourceFolder> -->
+<!-- 								<implFolder>src/main/java</implFolder> -->
+<!-- 								<java8>false</java8> -->
+<!-- 								<dateLibrary>java8</dateLibrary> -->
+<!-- 								<generateJbossDeploymentDescriptor>false</generateJbossDeploymentDescriptor> -->
+<!-- 								<generateSupportingFiles>true</generateSupportingFiles> --> 
+<!-- 								<interfaceOnly>true</interfaceOnly> -->
+<!-- 							</configOptions> -->
+<!-- 							<ignoreFileOverride>${project.basedir}/src/main/resources/.openapi-generator-ignore</ignoreFileOverride> -->
+<!-- 							<strictSpec>true</strictSpec> -->
+<!-- 							<generateSupportingFiles>true</generateSupportingFiles> -->
+<!-- 							<skipValidateSpec>false</skipValidateSpec> -->
+<!-- 							<configHelp>false</configHelp> -->
+<!-- 							<verbose>false</verbose> -->
+<!-- 							<skip>false</skip> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
+			<!-- Help Eclipse by adding ${project.build.directory}/generated-sources as source folder -->
+			<plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>build-helper-maven-plugin</artifactId>
+<!-- 			  <version>1.9.1</version> -->
+			  <executions>
+			    <execution>
+			      <id>add-source</id>
+			      <phase>generate-sources</phase>
+			      <goals>
+			        <goal>add-source</goal>
+			      </goals>
+			      <configuration>
+			        <sources>
+			          <source>${project.build.directory}/generated-sources/openapi/src/main/java/</source>
+			          <source>${project.build.directory}/generated-sources/annotations/</source>
+			        </sources>
+			      </configuration>
+			    </execution>
+			  </executions>
+			</plugin>		
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
+<!-- 				<version>1.6.0</version> --> 
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>additional-generation-from-openAPI-to-Json</id> -->
+<!-- 						<phase>process-sources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>java</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<configuration> -->
+<!-- 					<mainClass>com.fredrik.bookit.support.OpenAPIToJsonSupport</mainClass> -->
+<!-- 					<arguments> -->
+<!-- 						<arguments>${env}</arguments> --> 
+<!-- 						<arguments>${swversion}</arguments> --> 
+<!-- 					</arguments> -->
+<!-- 					<systemProperties> -->
+<!-- 						<systemProperty> -->
+<!-- 							<key>project.basedir</key> -->
+<!-- 							<value>${project.basedir}</value> -->
+<!-- 						</systemProperty> -->
+<!-- 					</systemProperties> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+
+
+			<!-- -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>getgit-info</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- human-readable part of the version number -->
+					<dateFormat>yyyyMMdd-HHmm</dateFormat>
+
+					<!-- If you'd like to tell the plugin where your .git directory is, 
+						use this setting, otherwise we'll perform a search trying to figure out the 
+						right directory. -->
+					<!-- It's better to add it explicitly IMHO. -->
+					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+
+					<!-- false is default here, it prints some more information during the 
+						build -->
+					<verbose>false</verbose>
+
+					<!-- This is false by default, forces the plugin to generate the git.properties 
+						file. Note that the functional meaning of git.build.time becomes different -->
+					<!-- in a very subtle way (see later in this README) Generating file: 
+						target/classes/git.properties -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+
+				</configuration>
+			</plugin>
+
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-resources-plugin</artifactId>
+			<version>2.4.2</version>
+			<executions>
+			  <execution>
+				<id>copy-ui-web-resources</id>
+				<phase>prepare-package</phase>
+				<goals>
+				  <goal>copy-resources</goal>
+				</goals>
+				<configuration>
+				  <overwrite>true</overwrite>
+			<!--                  <outputDirectory>${project.build.directory}/${project.artifactId}/</outputDirectory>   -->
+				  <outputDirectory>${project.build.directory}/classes/static</outputDirectory>
+				  <resources>
+					<resource>
+					  <directory>${project.basedir}/../bookit-ui-web/dist/</directory>
+					</resource>
+				  </resources>
+				</configuration>
+			  </execution>
+			</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+	<profiles>
+		<!-- Runs liquibase on an environment. 
+		  Could be triggered together with env property, like localdev, dev, test or qa 
+		  Example: 
+			mvn install -Pliquibase -Doperation=status
+			mvn install -Pliquibase -Doperation=status
+				
+		  See also: http://www.liquibase.org/documentation/maven/index.html
+		  -->
+		<profile>
+		  <id>liquibase</id>
+		  <build>
+			<plugins>
+			<!--
+			  <plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+					<executions>
+						<execution>
+							<id>copy-resources</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${basedir}/target/test-classes/liquibase</outputDirectory>
+								<filtering>false</filtering>
+								<resources>
+									<resource>
+										<directory>${basedir}/../tm-config/src/main/resources/liquibase</directory>
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+									<resource>
+										<directory>${basedir}/../tm-domain-user/src/main/resources/liquibase</directory>      
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+									<resource>
+										<directory>${basedir}/../tm-domain-common/src/main/resources/liquibase</directory>      
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+									<resource>
+										<directory>${basedir}/../tm-domain-product/src/main/resources/liquibase</directory>        
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+									<resource>
+										<directory>${basedir}/../tm-domain-testmgt/src/main/resources/liquibase</directory>
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+									<resource>
+										<directory>${basedir}/../tm-domain-testobject/src/main/resources/liquibase</directory>        
+										<includes>
+										  <include>*changelog*.xml</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
+			  </plugin>
+	--> 
+			  <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+				  <execution>
+					<phase>initialize</phase>
+					<goals>
+					  <goal>read-project-properties</goal>
+					</goals>
+					<configuration>
+					  <files>
+						<file>src/main/resources/application.properties</file>
+					  </files>
+					</configuration>
+				  </execution>
+				</executions>
+			  </plugin>
+			  
+			  <plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${liquibase.version}</version>
+				<configuration>
+				  <url>${spring.datasource.url}</url>
+	<!--               <defaultSchemaName>${datasource.username}</defaultSchemaName> -->
+				  <driver>org.postgresql.Driver</driver>
+				  <username>${spring.datasource.username}</username>
+				  <password>${spring.datasource.password}</password>
+				  <changeLogDir>${basedir}/target/test-classes/</changeLogDir>
+				  <changeLogFile>liquibase/changelog-master.xml</changeLogFile>
+				  <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+				  <!-- <contexts>${env}</contexts> -->
+				  <verbose>true</verbose>
+				</configuration>
+				<executions>
+				  <execution>
+					<phase>install</phase>
+					<goals>
+					  <goal>${operation}</goal>
+					</goals>
+				  </execution>
+				</executions>
+			  </plugin>
+			</plugins>
+		  </build>
+		</profile>
+	</profiles>
+
+</project>

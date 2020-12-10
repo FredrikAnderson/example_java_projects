@@ -36,7 +36,7 @@ public class LdapUtil {
     public static void main(String args[]) {
         LdapUtil ldapUtil = new LdapUtil();
         
-        PersonInfo userInfo = ldapUtil.getUserInfo("yt52878", "yt52878", "IawTCP20");        
+        PersonInfo userInfo = ldapUtil.getUserInfo("yt52878", "yt52878", "");        
         System.out.println("Person found: " + userInfo);
         
 //        LdapContext ldapContext = ldapUtil.getLdapContext("yt52878", "");

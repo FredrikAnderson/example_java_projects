@@ -1,0 +1,77 @@
+get:
+  tags:
+    - resources
+  summary: Find resource by ID
+  description: Returns a single resource
+  operationId: getResourceById
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      description: ID of resource to return
+      required: true
+      schema:
+         type: integer
+         format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ResourceDTO.yaml'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Resource not found
+put:
+  tags:
+    - resources
+  summary: Update an existing resource
+  description: ''
+  operationId: updateResource
+  parameters:
+    - name: id
+      in: path
+      description: ID of resource to return
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/ResourceDTO.yaml'
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Resource not found
+    '405':
+      description: Validation exception
+delete:
+  tags:
+    - resources
+  summary: Deletes a resource
+  description: ''
+  operationId: deleteResource
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      description: Resource id to delete
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Resource not found

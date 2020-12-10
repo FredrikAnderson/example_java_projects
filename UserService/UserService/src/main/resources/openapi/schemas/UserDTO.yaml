@@ -1,0 +1,11 @@
+type: object
+properties:
+  userid:
+    type: string
+  name:
+    type: string
+  email:
+    type: string
+  role:
+    type: string
+    

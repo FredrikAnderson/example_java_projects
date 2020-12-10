@@ -1,0 +1,19 @@
+
+OAuth2 clients
+==========
+
+Name
+=======
+web-client
+
+client ID
+=========
+253754057476-tt63l12rpmk1qjh9qsh1n12434fm28q8.apps.googleusercontent.com
+
+client secret
+=============
+ZhpYD6a793LkEXV3qxZEXOi4
+
+
+
+

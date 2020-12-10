@@ -1,0 +1,419 @@
+openapi: 3.0.1
+
+info:
+  version: 1.0.0
+  title: Book-IT
+  description: >-
+    This is REST API for Book-IT.
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: fanderson75@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    # TEsting 
+    #Again
+
+servers:
+  - url: http://localhost:8888/api
+    description: Testing
+    variables:
+      environment:
+        default: dev  # Dev instance
+        enum:
+          - dev       # Dev instance
+
+tags:
+  - name: projects
+  - name: resources
+  - name: items
+  - name: users
+#  - name: bookings
+
+paths:
+  /projects:
+    $ref: './paths/projects.yaml'
+  /projects/{id}:
+    $ref: './paths/projects-by-id.yaml'
+  /projects/{id}/book/{item}:
+    $ref: './paths/projects-booking.yaml'
+  /projects/{id}/cancel/{item}:
+    $ref: './paths/projects-cancel.yaml'
+  /resources:
+    $ref: './paths/resources.yaml'
+  /resources/{id}:
+    $ref: './paths/resources-by-id.yaml'
+  /items:
+    $ref: './paths/items.yaml'
+  /items/{id}:
+    $ref: './paths/items-by-id.yaml'
+  /users:
+    $ref: './paths/users.yaml'
+  /users/{id}:
+    $ref: './paths/users-by-id.yaml'
+  /users/{id}/login/{password}:
+    $ref: './paths/users-login.yaml'
+  # /bookings:
+    # post:
+      # tags:
+        # - bookings
+      # summary: Place a booking for a resource
+      # description: ''
+      # operationId: placeBooking
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - in: body
+          # name: body
+          # description: booking placed for resource
+          # required: true
+          # schema:
+            # $ref: '#/definitions/BookingDTO'
+      # responses:
+        # '200':
+          # description: successful operation
+          # schema:
+            # $ref: '#/definitions/BookingDTO'
+        # '400':
+          # description: Invalid Booking
+  # /bookings/:
+    # get:
+      # tags:
+        # - bookings
+      # summary: Returns bookings
+      # description: Returns a map of bookings
+      # operationId: getBookings
+      # produces:
+        # - application/json
+      # parameters: []
+      # responses:
+        # '200':
+          # description: successful operation
+          # schema:
+            # type: object
+            # additionalProperties:
+              # type: integer
+              # format: int32
+      # security:
+        # - api_key: []
+  # '/bookings/{bookingId}':
+    # get:
+      # tags:
+        # - bookings
+      # summary: Find booking by ID
+      # description: >-
+        # For valid response try integer IDs with value >= 1 and <= 10.        
+        # Other values will generated exceptions
+      # operationId: getBookingById
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: bookingId
+          # in: path
+          # description: ID of resource that needs to be fetched
+          # required: true
+          # type: integer
+          # maximum: 10
+          # minimum: 1
+          # format: int64
+      # responses:
+        # '200':
+          # description: successful operation
+          # schema:
+            # $ref: '#/definitions/BookingDTO'
+        # '400':
+          # description: Invalid ID supplied
+        # '404':
+          # description: Booking not found
+    # delete:
+      # tags:
+        # - bookings
+      # summary: Delete booking by ID
+      # description: >-
+        # For valid response try integer IDs with positive integer value.        
+        # Negative or non-integer values will generate API errors
+      # operationId: deleteBooking
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: bookingId
+          # in: path
+          # description: ID of the booking that needs to be deleted
+          # required: true
+          # type: integer
+          # minimum: 1
+          # format: int64
+      # responses:
+        # '400':
+          # description: Invalid ID supplied
+        # '404':
+          # description: Booking not found
+  # /user:
+    # post:
+      # tags:
+        # - user
+      # summary: Create user
+      # description: This can only be done by the logged in user.
+      # operationId: createUser
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - in: body
+          # name: body
+          # description: Created user object
+          # required: true
+          # schema:
+            # $ref: '#/definitions/UserDTO'
+      # responses:
+        # default:
+          # description: successful operation
+  # /user/createWithArray:
+    # post:
+      # tags:
+        # - user
+      # summary: Creates list of users with given input array
+      # description: ''
+      # operationId: createUsersWithArrayInput
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - in: body
+          # name: body
+          # description: List of user object
+          # required: true
+          # schema:
+            # type: array
+            # items:
+              # $ref: '#/definitions/UserDTO'
+      # responses:
+        # default:
+          # description: successful operation
+  # /user/createWithList:
+    # post:
+      # tags:
+        # - user
+      # summary: Creates list of users with given input array
+      # description: ''
+      # operationId: createUsersWithListInput
+      # produces:
+        # - application/json
+      # parameters:
+        # - in: body
+          # name: body
+          # description: List of user object
+          # required: true
+          # schema:
+            # type: array
+            # items:
+              # $ref: '#/definitions/UserDTO'
+      # responses:
+        # default:
+          # description: successful operation
+  # '/user/{username}':
+    # get:
+      # tags:
+        # - user
+      # summary: Get user by user name
+      # description: ''
+      # operationId: getUserByName
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: username
+          # in: path
+          # description: 'The name that needs to be fetched. Use user1 for testing. '
+          # required: true
+          # type: string
+      # responses:
+        # '200':
+          # description: successful operation
+          # schema:
+            # $ref: '#/definitions/UserDTO'
+        # '400':
+          # description: Invalid username supplied
+        # '404':
+          # description: User not found
+  # /user/login:
+    # get:
+      # tags:
+        # - user
+      # summary: Logs user into the system
+      # description: ''
+      # operationId: loginUser
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: username
+          # in: query
+          # description: The user name for login
+          # required: true
+          # type: string
+        # - name: password
+          # in: query
+          # description: The password for login in clear text
+          # required: true
+          # type: string
+      # responses:
+        # '200':
+          # description: successful operation
+          # schema:
+            # type: string
+          # headers:
+            # X-Rate-Limit:
+              # type: integer
+              # format: int32
+              # description: calls per hour allowed by the user
+            # X-Expires-After:
+              # type: string
+              # format: date-time
+              # description: date in UTC when token expires
+        # '400':
+          # description: Invalid username/password supplied
+  # /user/logout:
+    # get:
+      # tags:
+        # - user
+      # summary: Logs out current logged in user session
+      # description: ''
+      # operationId: logoutUser
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters: []
+      # responses:
+        # default:
+          # description: successful operation
+    # put:
+      # tags:
+        # - user
+      # summary: Updated user
+      # description: This can only be done by the logged in user.
+      # operationId: updateUser
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: username
+          # in: path
+          # description: name that need to be updated
+          # required: true
+          # type: string
+        # - in: body
+          # name: body
+          # description: Updated user object
+          # required: true
+          # schema:
+            # $ref: '#/definitions/UserDTO'
+      # responses:
+        # '400':
+          # description: Invalid user supplied
+        # '404':
+          # description: User not found
+    # delete:
+      # tags:
+        # - user
+      # summary: Delete user
+      # description: This can only be done by the logged in user.
+      # operationId: deleteUser
+      # produces:
+        # - application/xml
+        # - application/json
+      # parameters:
+        # - name: username
+          # in: path
+          # description: The name that needs to be deleted
+          # required: true
+          # type: string
+      # responses:
+        # '400':
+          # description: Invalid username supplied
+        # '404':
+          # description: User not found
+
+components:
+  schemas:
+    RestStatus:
+      $ref: './schemas/RestStatus.yaml'
+  responses:
+    Ok:
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema: 
+            $ref: '#/components/schemas/RestStatus'
+    NotAuthenticated:
+      description: 'Authentication failed. User not authenticated to use SID'
+    Unauthorized:
+      description: 'Authorization failed. Invalid user role'
+    BadRequest:
+      description: 'Category.ERROR(3), Request parameters failed validation.'
+      content:
+        application/json:
+          schema: 
+            $ref: '#/components/schemas/RestStatus'
+    NotFound:
+      description: 'Category.WARNING(2), Not Found. "description"'
+    InternalError:
+      description: 'Internal Service Error'
+    ServiceUnavailable:
+      description: 'Category.ERROR(3), Service unavailable.'
+      content:
+        application/json:
+          schema: 
+            $ref: '#/components/schemas/RestStatus'
+
+#definitions:
+  # BookingDTO:
+    # type: object
+    # properties:
+      # id:
+        # type: integer
+        # format: int64
+      # resourceId:
+        # type: integer
+        # format: int64
+      # fromDate:
+        # type: string
+        # format: date-time
+      # toDate:
+        # type: string
+        # format: date-time
+  # UserDTO:
+    # type: object
+    # properties:
+      # id:
+        # type: integer
+        # format: int64
+      # username:
+        # type: string
+      # firstName:
+        # type: string
+      # lastName:
+        # type: string
+      # email:
+        # type: string
+      # password:
+        # type: string
+      # phone:
+        # type: string
+      # userStatus:
+        # type: integer
+        # format: int32
+        # description: User Status
+  # ApiResponse:
+    # type: object
+    # properties:
+      # code:
+        # type: integer
+        # format: int32
+      # type:
+        # type: string
+      # message:
+        # type: string

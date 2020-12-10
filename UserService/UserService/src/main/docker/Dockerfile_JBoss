@@ -1,0 +1,16 @@
+#FROM registry.access.redhat.com/jboss-eap-7/eap70-openshift
+FROM dockerqa.it.volvo.net:18444/fredrik/first
+
+COPY target/firstapp-0.0.1-SNAPSHOT.war $JBOSS_HOME/standalone/deployments/
+USER root
+RUN chown jboss:jboss $JBOSS_HOME/standalone/deployments/firstapp-0.0.1-SNAPSHOT.war
+# Add admin user to be used
+RUN $JBOSS_HOME/bin/add-user.sh admin Admin#007 --silent
+USER jboss
+# RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/cli-commands.txt
+# CMD ["/opt/eap/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+
+## Workaround due to https://issues.jboss.org/browse/WFCORE-1501
+RUN rm -rf /opt/eap/standalone/configuration/standalone_xml_history/current/*
+EXPOSE 9990
+CMD ["/opt/eap/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]

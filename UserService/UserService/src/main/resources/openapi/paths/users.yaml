@@ -1,0 +1,45 @@
+post:
+  tags:
+    - users
+  summary: Add a new user
+  description: ''
+  operationId: addUser
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/UserDTO.yaml'
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UserDTO.yaml'
+    '405':
+      description: Invalid input
+
+get:
+  tags:
+    - users
+  summary: Gets all users
+  description: ''
+  operationId: getUsers
+  parameters:
+    - name: name
+      in: query
+      description: Name of users to return
+      required: false
+      schema:
+         type: string
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UserDTOList.yaml'
+    '405':
+      description: Invalid input

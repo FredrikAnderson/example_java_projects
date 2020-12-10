@@ -1,0 +1,11 @@
+# Exclude generated service implementations
+**/*Impl.java
+
+# Exclude generated jackson config
+**/JacksonConfig.java
+
+# Exclude generated rest application
+**/RestApplication.java
+
+# Exclude webapp
+**/web.xml

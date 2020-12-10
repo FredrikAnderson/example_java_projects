@@ -1,0 +1,77 @@
+get:
+  tags:
+    - items
+  summary: Find item by ID
+  description: Returns a single item
+  operationId: getItemById
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      description: ID of item to return
+      required: true
+      schema:
+         type: integer
+         format: int64
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ItemDTO.yaml'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Item not found
+put:
+  tags:
+    - items
+  summary: Update an existing resource
+  description: ''
+  operationId: updateItem
+  parameters:
+    - name: id
+      in: path
+      description: ID of item to return
+      required: true
+      schema:
+        type: integer
+        format: int64
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/ItemDTO.yaml'
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Item not found
+    '405':
+      description: Validation exception
+delete:
+  tags:
+    - items
+  summary: Deletes a item
+  description: ''
+  operationId: deleteItem
+  produces:
+    - application/xml
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      description: Item id to delete
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: Item not found

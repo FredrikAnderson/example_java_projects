@@ -1,0 +1,46 @@
+post:
+  tags:
+    - items
+  summary: Add a new item
+  description: ''
+  operationId: addItem
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/ItemDTO.yaml'
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ItemDTO.yaml'
+    '405':
+      description: Invalid input
+
+get:
+  tags:
+    - items
+  summary: Gets all items
+  description: ''
+  operationId: getItems
+  parameters:
+    - name: name
+      in: query
+      description: Name of items to return
+      required: false
+      schema:
+         type: string
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ItemDTOList.yaml'
+    '405':
+      description: Invalid input
+      

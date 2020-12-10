@@ -97,6 +97,7 @@
 					<archive>
 						<manifest>
 							<mainClass>com.volvo.fredrik.AppUptimeChecker</mainClass>
+<!-- 							<mainClass>com.volvo.fredrik.OSSupport</mainClass> -->
 						</manifest>
 					</archive>
 					<descriptorRefs>

@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  publicId:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  inventory:
+    type: string
+  width:
+    type: number
+    format: float
+  height:
+    type: number
+    format: float
+  length:
+    type: number
+    format: float
+  weight:
+    type: number
+    format: float
+  price:
+    type: number
+    format: float
+  projects:
+    type: array
+    items:
+      $ref: '../schemas/ProjectDTO.yaml'
+    

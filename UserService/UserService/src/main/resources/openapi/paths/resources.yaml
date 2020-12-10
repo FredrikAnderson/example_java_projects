@@ -1,0 +1,38 @@
+post:
+  tags:
+    - resources
+  summary: Add a new resource
+  description: ''
+  operationId: addResource
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/ResourceDTO.yaml'
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ResourceDTO.yaml'
+    '405':
+      description: Invalid input
+
+get:
+  tags:
+    - resources
+  summary: Gets all resources
+  description: ''
+  operationId: getResources
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ResourceDTOList.yaml'
+    '405':
+      description: Invalid input

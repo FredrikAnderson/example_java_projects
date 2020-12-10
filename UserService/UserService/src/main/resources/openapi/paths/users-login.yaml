@@ -1,0 +1,32 @@
+get:
+  tags:
+    - users
+  summary: Login user 
+  description: Returns a logged in user
+  operationId: getLoggedInUser
+  produces:
+    - application/json
+  parameters:
+    - name: id
+      in: path
+      description: ID of user to return
+      required: true
+      schema:
+         type: string
+    - name: password
+      in: path
+      description: Password for the user wanting to login
+      required: true
+      schema:
+         type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UserDTO.yaml'
+    '400':
+      description: Invalid ID supplied
+    '404':
+      description: User not found

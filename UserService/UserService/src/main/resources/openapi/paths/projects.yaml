@@ -1,0 +1,39 @@
+post:
+  tags:
+    - projects
+  summary: Add a new project
+  description: ''
+  operationId: addProject
+  requestBody:
+    required: true
+    description: project object that needs to be added
+    content:
+      application/json:
+        schema:
+           $ref: '../schemas/ProjectDTO.yaml'
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProjectDTO.yaml'
+    '405':
+      description: Invalid input
+
+get:
+  tags:
+    - projects
+  summary: Gets all project
+  description: ''
+  operationId: getProjects
+  responses:
+    '200':
+      description: 'Category.OK(0), OK'
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProjectDTOList.yaml'
+    '405':
+      description: Invalid input
+      

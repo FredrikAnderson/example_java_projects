@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,14 +18,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import javax.swing.event.ListSelectionEvent;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.Equator;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -52,7 +48,13 @@ public class TestingArea {
     
     public static void main(String[] args) {
 
-    	replaceUnicodeZeros();
+
+    	convertSQL();
+    	
+//    	printJavaProperties(args);        
+
+    	
+//    	replaceUnicodeZeros();
     	
     	
 //    	trySmbAccess();
@@ -90,7 +92,46 @@ public class TestingArea {
 //        printJavaProperties(args);        
     }
 
-    private static void replaceUnicodeZeros() {
+    private static void convertSQL() {
+
+    	File inFile = new File("C:\\Dev\\RDM\\Workarea\\tmp\\dispatcher_test.sql");
+    	File toFile = new File("C:\\Dev\\RDM\\Workarea\\tmp\\dispatcher_conv.sql");
+    	    	
+    	try {
+			List<String> allLines = Files.readAllLines(inFile.toPath());
+			List<String> toLines = new ArrayList<>();
+			
+			for (String string : allLines) {
+				String toStr = string;
+				
+				int xStart = string.indexOf(", X");
+//				if (string.contains(", X'")) {
+				if (xStart != -1) {
+//					System.out.println("Got line: " + string);
+					int commaStop = string.indexOf(", ", xStart + 3);
+					
+					// replace ', X' => ', hex('
+					// replace ', '  => ', 'hex'),'
+
+					toStr = string.substring(0, commaStop) + ", 'hex'), " + string.substring(commaStop + 2);
+					
+					toStr = toStr.replace(", X", ", decode(");
+					System.out.println("To line: " + toStr);
+				}				
+
+				toLines.add(toStr);
+			}
+
+	    	Files.write(toFile.toPath(), toLines, StandardOpenOption.CREATE_NEW, StandardOpenOption.APPEND);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+    	
+	}
+
+	private static void replaceUnicodeZeros() {
 
     	String str = "abc\\u0000\\u0000\\u0000defafterwards\\\\u0000\\\\u0000";
     	
