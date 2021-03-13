@@ -14,7 +14,7 @@
 		<!-- <module>LdapUtil</module> -->
 		<!-- <module>svncommitters</module> -->
 		<module>Testarea</module>
-		<module>webscraper</module>		
+		<!-- <module>webscraper</module>		-->
 	</modules>
 
 </project>
