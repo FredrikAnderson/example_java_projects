@@ -41,18 +41,22 @@ public class CommonUtil {
     }
 
     public static String executeCmd(String cmd) {
-        return executeCmd(null, cmd, null);
+        return executeCmd(null, cmd, null, false);
     }
 
+    public static String executeCmd(String cmd, boolean waitForCmd) {
+        return executeCmd(null, cmd, null, waitForCmd);
+    }    
+
     public static String executeCmd(String cmd, String output) {
-        return executeCmd(null, cmd, output);
+        return executeCmd(null, cmd, output, false);
     }
 
     public static String executeCmd(File dir, String cmd) {
-        return executeCmd(dir, cmd, null);
+        return executeCmd(dir, cmd, null, false);
     }
 
-	public static String executeCmd(File dir, String cmd, String output) {
+	public static String executeCmd(File dir, String cmd, String output, boolean inheritIo) {
 	    String toreturn = "";
 	    
 	    if (output == null) {
@@ -79,15 +83,24 @@ public class CommonUtil {
 			
 //			ProcessBuilder pb = new ProcessBuilder("ping jira.it.volvo.net");
 //			pb.inheritIO();
+			if (inheritIo) {
+				pb.inheritIO();
+			}
 			
 			Process proc = pb.start();
-			proc.waitFor();
+			if (inheritIo) {
+				proc.waitFor();				
+			}
 			
 			InputStream inputStream = proc.getInputStream();			
 			StringWriter writer = new StringWriter();
 			IOUtils.copy(inputStream, writer);
 			toreturn = writer.toString();
-			
+
+			if (!inheritIo) {
+				proc.waitFor();
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

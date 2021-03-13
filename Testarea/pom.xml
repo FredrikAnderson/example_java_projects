@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-<!-- 	<parent> -->
-<!-- 		<groupId>org.springframework.boot</groupId> -->
-<!-- 		<artifactId>spring-boot-starter-parent</artifactId> -->
-<!-- 		<version>2.2.7.RELEASE</version> -->
-<!-- 		<relativePath /> lookup parent from repository -->
-<!-- 	</parent> -->
+	<!-- <parent> -->
+	<!-- <groupId>org.springframework.boot</groupId> -->
+	<!-- <artifactId>spring-boot-starter-parent</artifactId> -->
+	<!-- <version>2.2.7.RELEASE</version> -->
+	<!-- <relativePath /> lookup parent from repository -->
+	<!-- </parent> -->
 
 	<groupId>com.volvo.fredrik</groupId>
 	<artifactId>java-testarea</artifactId>
@@ -60,13 +60,25 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.10.0.pr1</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.18</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.codelibs</groupId>
 			<artifactId>jcifs</artifactId>
 			<version>2.1.20</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.ibm.mq</groupId>
+			<artifactId>com.ibm.mq.allclient</artifactId>
+			<version>9.1.4.0</version>
+		</dependency>
+
 		<!-- <dependency> -->
 		<!-- <groupId>org.apache</groupId> -->
 		<!-- <artifactId>commons-collections4</artifactId> -->
@@ -96,8 +108,8 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.volvo.fredrik.AppUptimeChecker</mainClass>
-<!-- 							<mainClass>com.volvo.fredrik.OSSupport</mainClass> -->
+							<!-- <mainClass>com.volvo.fredrik.AppUptimeChecker</mainClass>  -->
+							<mainClass>com.volvo.fredrik.OSSupport</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
